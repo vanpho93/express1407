@@ -1,10 +1,14 @@
 const express = require('express');
 const PhepTinh = require('./PhepTinh');
 const app = express();
+//Template engine ejs
+
+app.set('view engine', 'ejs');
+app.set('views', './views');
 
 //get post put delete
 app.get('/', (req, res) => {
-    res.send('<h1>AAA</h1>');
+    res.render('home');
 });
 
 app.get('/hello/:name/:age', (req, res) => {
@@ -13,7 +17,7 @@ app.get('/hello/:name/:age', (req, res) => {
 });
 
 app.get('/home', (req, res) => {
-    res.send('Homepage 123');
+    res.send('Homepage');
 });
 
 app.get('/tinh/:tenPhepTinh/:soa/:sob', (req, res) => {
