@@ -8,7 +8,7 @@ app.set('views', './views');
 app.use(express.static('./public'));
 //get post put delete
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('index');
 });
 
 app.get('/hello/:name/:age', (req, res) => {
