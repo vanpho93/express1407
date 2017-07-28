@@ -1,5 +1,5 @@
 const express = require('express');
-
+const PhepTinh = require('./PhepTinh');
 const app = express();
 
 //get post put delete
@@ -27,21 +27,3 @@ app.get('*', (req, res) => {
 });
 
 app.listen(3000, () => console.log('Server is running.'));
-
-class PhepTinh {
-    constructor(soa, sob, tenPhepTinh) {
-        this.soa = soa;
-        this.sob =sob;
-        this.tenPhepTinh = tenPhepTinh;
-    }
-
-    getResultString() {
-        let toanTu = '*';
-        if (this.tenPhepTinh === 'CONG') toanTu = '+';
-        if (this.tenPhepTinh === 'TRU') toanTu = '-';
-        if (this.tenPhepTinh === 'CHIA') toanTu = '/';
-        const veTrai = `${this.soa} ${toanTu} ${this.sob}`;
-        const ketQua = eval(veTrai);
-        return `${veTrai} = ${ketQua}`;
-    }
-}
